@@ -14,7 +14,7 @@ export class HomePage implements OnInit, AfterViewInit {
   markerChild: L.Marker | undefined;
   address: string = 'Loading address...';
   otherAddress: string = 'Loading parent address...'; // Update this line
-  apiKey = '29e467d9bb574e6da61953fbd39b5c67';  // API Key OpenCage
+  apiKey = 'af9299772ac94f2184ae4536d1649053';  // API Key OpenCage
 
   constructor(private http: HttpClient) {}
 
@@ -109,7 +109,7 @@ export class HomePage implements OnInit, AfterViewInit {
 
       const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-      this.http.post('https://4e20255e-8188-46b5-9505-53ccdf128cdf-00-26wxol8esggii.picard.replit.dev/', body, { headers }).subscribe(
+      this.http.post('https://9c58d12d-8699-4675-8180-5c722855664e-00-oam5fqqaxeq6.pike.replit.dev/', body, { headers }).subscribe(
         response => {
           console.log('Location updated on server:', response);
           this.getParentLocation(); // Get parent location after updating child location
@@ -122,7 +122,7 @@ export class HomePage implements OnInit, AfterViewInit {
   }
 
   async getParentLocation() {
-    this.http.get('https://4e20255e-8188-46b5-9505-53ccdf128cdf-00-26wxol8esggii.picard.replit.dev/?role=parent').subscribe(
+    this.http.get('https://9c58d12d-8699-4675-8180-5c722855664e-00-oam5fqqaxeq6.pike.replit.dev/?role=parent').subscribe(
       (response: any) => {
         const parentLocation = response.parent;
         console.log('Parent location from server:', parentLocation); // Log the parent location data
